@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../camera-kit-compare-html/.idea/camera-kit-compare-html.iml" filepath="$PROJECT_DIR$/../camera-kit-compare-html/.idea/camera-kit-compare-html.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/camera-kit-manager.iml" filepath="$PROJECT_DIR$/.idea/camera-kit-manager.iml" />
+    </modules>
+  </component>
+</project>
