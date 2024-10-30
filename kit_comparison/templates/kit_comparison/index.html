@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if kits %}
+	<ul>
+    {% for kit in kits %}
+    	<li><a href="{% url 'kit_comparison:kit_detail' kit.id %}">Kit entry</a></li>
+    {% endfor %}
+    </ul>
+{%  else %}
+    <p>No kits are available.</p>
+{% endif %}
+{% if lenses %}
+	<ul>
+    {% for lens in lenses %}
+    	<li><a href="{% url 'kit_comparison:lens_detail' lens.id %}">{{ lens.name }}</a></li>
+    {% endfor %}
+    </ul>
+{%  else %}
+    <p>No lenses are available.</p>
+{% endif %}
+</body>
+</html>

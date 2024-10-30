@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Kit detail</h1>
+    <ul>
+    {% for lens in kit.lenses.all %}
+        <li><a href="{% url 'kit_comparison:lens_detail' lens.id %}">{{ lens.name }}</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Lens
+from .models import Lens, Kit
 
 class LensAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -9,3 +9,4 @@ class LensAdmin(admin.ModelAdmin):
     ]
 
 admin.site.register(Lens, LensAdmin)
+admin.site.register(Kit)
