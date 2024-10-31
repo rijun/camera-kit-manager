@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "kit_comparison/base.html" %}
+
+{% block content %}
 {% if kit_list %}
 	<ul>
     {% for kit in kit_list %}
@@ -14,6 +10,7 @@
 {%  else %}
     <p>No kits are available.</p>
 {% endif %}
+<a href="{% url 'kit_comparison:kit_create' %}">Create new kit</a>
 {% if lenses %}
 	<ul>
     {% for lens in lenses %}
@@ -23,5 +20,4 @@
 {%  else %}
     <p>No lenses are available.</p>
 {% endif %}
-</body>
-</html>
+{% endblock %}

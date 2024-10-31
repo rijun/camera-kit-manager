@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>{{ lens.manufacturer }} {{ lens.name }}</h1>
+{% extends "kit_comparison/base.html" %}
+
+{% block title %}Lens Detail{% endblock %}
+
+{% block content %}
+    <h2>{{ lens.manufacturer }} {{ lens.name }}</h2>
     <p>Technical data</p>
     <table>
         <tr>
@@ -29,5 +27,4 @@
             <td>{{ lens.filter_size }}</td>
        </tr>
     </table>
-</body>
-</html>
+{% endblock %}

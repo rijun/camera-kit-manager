@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
+admin.site.site_title = 'Camera Kit Manager'
+admin.site.site_header = 'Camera Kit Manager Administration'
+
 urlpatterns = [
     path("", include("kit_comparison.urls")),
     path('admin/', admin.site.urls),

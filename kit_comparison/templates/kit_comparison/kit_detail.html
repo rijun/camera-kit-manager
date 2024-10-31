@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Kit detail</h1>
+{% extends "kit_comparison/base.html" %}
+
+{% block title %}Kit Detail{% endblock %}
+
+{% block content %}
     <ul>
     {% for lens in kit.lenses.all %}
         <li><a href="{% url 'kit_comparison:lens_detail' lens.id %}">{{ lens.name }}</a></li>
     {% endfor %}
     </ul>
     <p>Total weight: {{ total_weight }} g</p>
-    <p><svg>
-        {{ focal_range_plot }}
-    </svg></p>
-</body>
-</html>
+    <a href="{% url 'kit_comparison:kit_update' kit.id %}">Edit kit</a>
+{% endblock %}
