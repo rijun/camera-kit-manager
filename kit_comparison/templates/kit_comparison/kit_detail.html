@@ -10,4 +10,5 @@
     </ul>
     <p>Total weight: {{ total_weight }} g</p>
     <a href="{% url 'kit_comparison:kit_update' kit.id %}">Edit kit</a>
+    <a href="{% url 'kit_comparison:kit_delete' kit.id %}">Delete kit</a>
 {% endblock %}

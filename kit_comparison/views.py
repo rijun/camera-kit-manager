@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
 from .models import Lens, Kit
@@ -22,11 +23,17 @@ def index(request):
 class KitCreateView(generic.edit.CreateView):
     model = Kit
     fields = ['lenses']
-
+    success_url = reverse_lazy("kit_comparison:index")
 
 class KitUpdateView(generic.UpdateView):
     model = Kit
     fields = ['lenses']
+    success_url = reverse_lazy("kit_comparison:index")
+
+
+class KitDeleteView(generic.DeleteView):
+    model = Kit
+    success_url = reverse_lazy("kit_comparison:index")
 
 
 class KitDetailView(generic.DetailView):

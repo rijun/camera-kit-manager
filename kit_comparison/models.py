@@ -23,6 +23,9 @@ class Kit(models.Model):
     def get_total_weight(self):
         return sum([x.weight for x in self.lenses.all()])
 
+    def __str__(self):
+        return f"Kit {self.id}"
+
     def get_focal_range_plot(self):
         full_names = [f"{x.manufacturer} {x.name}" for x in self.lenses.all()]
         focal_lengths = [[int(l) for l in x.focal_length.split('-')] for x in self.lenses.all()]
