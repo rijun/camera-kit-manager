@@ -1,0 +1,13 @@
+{% extends "kit_comparison/base.html" %}
+
+{% block content %}
+    {% if lens_list %}
+        <ul>
+            {% for lens in lens_list %}
+                <li><a href="{% url 'kit_comparison:lens_detail' lens.id %}">{{ lens.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No lenses are available.</p>
+    {% endif %}
+{% endblock %}

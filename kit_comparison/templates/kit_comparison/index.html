@@ -1,23 +1,26 @@
 {% extends "kit_comparison/base.html" %}
 
 {% block content %}
-{% if kit_list %}
-	<ul>
-    {% for kit in kit_list %}
-    	<li><a href="{% url 'kit_comparison:kit_detail' kit.id %}">Kit entry</a></li>
-    {% endfor %}
-    </ul>
-{%  else %}
-    <p>No kits are available.</p>
-{% endif %}
-<a href="{% url 'kit_comparison:kit_create' %}">Create new kit</a>
-{% if lenses %}
-	<ul>
-    {% for lens in lenses %}
-    	<li><a href="{% url 'kit_comparison:lens_detail' lens.id %}">{{ lens.name }}</a></li>
-    {% endfor %}
-    </ul>
-{%  else %}
-    <p>No lenses are available.</p>
-{% endif %}
+    <div><a href="{% url 'kit_comparison:kit_create' %}">Create new kit</a></div>
+    {% if kit_list %}
+        <table>
+            <tr>
+                <th>Kit name</th>
+                <th>Lenses</th>
+                <th>Focal lengths [mm]</th>
+                <th>Total weight [g]</th>
+            </tr>
+            {% for kit in kit_list %}
+                <tr>
+                    <td><a href="{% url 'kit_comparison:kit_detail' kit.id %}">Show kit</a></td>
+                    <td style="white-space:pre-wrap; word-wrap:break-word">{{ kit.lenses }}</td>
+                    <td style="white-space:pre-wrap; word-wrap:break-word">{{ kit.focal_lengths }}</td>
+                    <td>{{ kit.total_weight }}</td>    
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No kits are available.</p>
+    {% endif %}
+    <div><a href="{% url 'kit_comparison:lens_list' %}">Show all available lenses</a></div>
 {% endblock %}
