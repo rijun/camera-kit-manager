@@ -1,22 +1,19 @@
-from django.http import HttpResponse, Http404
-from django.shortcuts import render, get_object_or_404
+from django.views import generic
 
 from .models import Lens, Kit
 
-def index(request):
-    context = {
-        'kits': Kit.objects.all(),
-        'lenses': Lens.objects.all(),
-    }
-    return render(request, 'kit_comparison/index.html', context)
+class IndexView(generic.ListView):
+    model = Kit
+    template_name = 'kit_comparison/index.html'
 
-def kit_detail(request, kit_id):
-    kit = get_object_or_404(Kit, pk=kit_id)
-    return render(request, 'kit_comparison/kit_detail.html', {'kit': kit})
+class KitDetailView(generic.DetailView):
+    model = Kit
 
-def lenses(request):
-    return HttpResponse("Hello, world. You're at the lenses list view.")
+    def get_context_data(self, **kwargs):
+        _context = super().get_context_data(**kwargs)
+        _context['total_weight'] = self.object.get_total_weight()
+        _context['focal_range_plot'] = self.object.get_focal_range_plot()
+        return _context
 
-def lens_detail(request, lens_id):
-    lens = get_object_or_404(Lens, pk=lens_id)
-    return render(request, 'kit_comparison/lens_detail.html', {'lens': lens})
+class LensDetailView(generic.DetailView):
+    model = Lens

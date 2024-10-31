@@ -5,9 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-{% if kits %}
+{% if kit_list %}
 	<ul>
-    {% for kit in kits %}
+    {% for kit in kit_list %}
     	<li><a href="{% url 'kit_comparison:kit_detail' kit.id %}">Kit entry</a></li>
     {% endfor %}
     </ul>

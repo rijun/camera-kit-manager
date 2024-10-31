@@ -11,5 +11,9 @@
         <li><a href="{% url 'kit_comparison:lens_detail' lens.id %}">{{ lens.name }}</a></li>
     {% endfor %}
     </ul>
+    <p>Total weight: {{ total_weight }} g</p>
+    <p><svg>
+        {{ focal_range_plot }}
+    </svg></p>
 </body>
 </html>
