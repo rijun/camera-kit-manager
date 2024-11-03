@@ -15,7 +15,7 @@ def index(request):
     } for x in available_kits]
 
     context = {
-        'kit_list': kit_list
+        'kit_list': sorted(kit_list, key=lambda k: k['total_weight'])
     }
     return render(request, 'kit_comparison/index.html', context)
 
